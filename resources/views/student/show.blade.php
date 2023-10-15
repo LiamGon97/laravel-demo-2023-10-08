@@ -49,7 +49,18 @@
                                         <span>Female</span>
                                     @endif
                                 </td>
+         
                             </tr>
+                            <td>
+    
+   
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-danger delete-student" value="Delete">
+            <a href="/student/{{$student->id}}/edit" class="btn btn-primary">Edit</a>
+        </div>
+    </form>
+</td>
                         </tbody>
                     </table>
                 @else
@@ -59,8 +70,11 @@
                         <a href="{{ route('student_index') }}" class="btn btn-outline-success">All Students</a>
                     </div>
                 @endif
+
+              
             </div>
         </div>
     </div>
+    
 </body>
 </html>

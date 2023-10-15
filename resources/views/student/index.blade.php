@@ -15,6 +15,9 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h2>Students</h2>
                     <a href="{{ route('student_create') }}" class="btn btn-success">Add Student</a>
+                    <a href="{{ route('student_edit') }}" class="btn btn-success">Edit</a>
+                    <a href="{{ route('student_delete') }}" class="btn btn-success">Delete</a>
+                    
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, fugit nobis non quos repellendus sint?</p>
 
@@ -23,7 +26,11 @@
                     @foreach($students as $key => $student)
                         <a class="list-group-item" href="{{ route('student_show', ['id' => $student['id']]) }}">{{ $student['first_name'] }} {{ $student['last_name'] }}</a>
                     @endforeach
+
+                    
                 </div>
+
+                
             </div>
         </div>
     </div>
