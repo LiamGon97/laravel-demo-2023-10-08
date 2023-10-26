@@ -16,7 +16,7 @@
                     <h2>Students</h2>
                     <a href="{{ route('student_create') }}" class="btn btn-success">Add Student</a>
                 </div>
-                <p>HAHAHA NAKAKAPOTANGINA</p>
+                <p>Good All Day!!</p>
 
                 <!-- Student List -->
                 <div class="list-group">
