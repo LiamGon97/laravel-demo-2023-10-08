@@ -47,20 +47,70 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        /*
+        
         $student = new Student();
         $student->first_name = $request->first_name;
         $student->last_name = $request->last_name;
         $student->is_male = $request->is_male;
         $student->save();
-        */
 
+        return back();
+        
+/*
         Student::create([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'is_male'    => $request->is_male
         ]);
 
-        return redirect()->route('student_index');
+        return redirect()->route('student_index'); */
     }
+    public function edit($id)
+{
+    $student = Student::findOrFail($id);
+    return view('students\edit', compact('student'));
+}
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'first_name' => 'required',
+        'last_name' => 'required',
+    ]);
+
+    $student = Student::findOrFail($id);
+    $student->update($request->all());
+
+    return redirect()->route('student_index')->with('success', 'Student updated successfully.');
+}
+
+function delete_record($id){
+
+    Student::destroy($id);
+
+    return back();
+}
+function edit_record($id)
+{
+     $student = Student::find($id);
+    
+     return view('student.edit', compact('student'));
+
+
+}
+
+function update_student(Request $request, $id)
+{
+    $student = Student::find($id);
+
+    $student->first_name = $request->first_name;
+    $student->last_name = $request->last_name;
+    $student->is_male = $request->is_male;
+    
+    $student->save();
+     
+    return redirect()->route('student_index');
+
+
+}
 }
